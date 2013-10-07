@@ -1,0 +1,15 @@
+{
+  "name": "downloads incognito split apitest",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "downloads incognito split apitest",
+  "incognito": "split",
+  "web_accessible_resources": ["empty.html"],
+  "permissions": [
+    "downloads",
+    "downloads.open",
+    "downloads.shelf",
+    "http://*/*",
+    "file://*"
+  ]
+}

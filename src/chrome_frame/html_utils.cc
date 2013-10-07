@@ -321,7 +321,7 @@ bool HTMLScanner::NextTag(StringRange* html_string, StringRange* tag) {
 
 namespace http_utils {
 
-const char kChromeFrameUserAgent[] = "chromeframe";
+const char kChromeFrameUserAgent[] = "openframe";
 static char g_cf_user_agent[100] = {0};
 static char g_chrome_user_agent[255] = {0};
 

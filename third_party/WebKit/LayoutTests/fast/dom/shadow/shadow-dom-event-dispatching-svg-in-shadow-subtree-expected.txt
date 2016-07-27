@@ -1,0 +1,26 @@
+CONSOLE WARNING: 'SVGElement.offsetLeft' is deprecated and will be removed in M50, around April 2016. See https://www.chromestatus.com/features/5724912467574784 for more details.
+CONSOLE WARNING: 'SVGElement.offsetWidth' is deprecated and will be removed in M50, around April 2016. See https://www.chromestatus.com/features/5724912467574784 for more details.
+CONSOLE WARNING: 'SVGElement.offsetTop' is deprecated and will be removed in M50, around April 2016. See https://www.chromestatus.com/features/5724912467574784 for more details.
+CONSOLE WARNING: 'SVGElement.offsetHeight' is deprecated and will be removed in M50, around April 2016. See https://www.chromestatus.com/features/5724912467574784 for more details.
+
+
+Composed Shadow Tree will be:
+DIV	 id=sandbox
+	DIV	 id=top
+		DIV	 id=shadow-host
+			svg	 id=svg-in-shadow-tree class=[object SVGAnimatedString]
+
+
+Moving mouse from shadow-host/svg-in-shadow-tree to top
+
+  mouseout
+     @svg-in-shadow-tree (target: svg-in-shadow-tree) (related: top)
+     @shadow-root (target: svg-in-shadow-tree) (related: top)
+     @top (target: shadow-host) (related: top)
+
+  mouseover
+     @top (target: top) (related: shadow-host)
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

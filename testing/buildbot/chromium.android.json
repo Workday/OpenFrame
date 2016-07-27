@@ -1,0 +1,250 @@
+{
+  "Android Aura Tester (dbg)": {
+    "gtest_tests": [
+      {
+        "test": "base_unittests"
+      },
+      {
+        "test": "compositor_unittests"
+      },
+      {
+        "test": "content_unittests"
+      }
+    ]
+  },
+  "Android GN Builder (dbg)": {
+    "additional_compile_targets": [
+      "blimp_tests",
+      "chrome_public_apk",
+      "chrome_public_test_apk",
+      "content_shell_apk",
+      "content_shell_test_apk",
+      "mandoline:all",
+      "system_webview_apk"
+    ]
+  },
+  "Jelly Bean Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  },
+  "KitKat Tablet Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  },
+  "Lollipop 64 bit Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  },
+  "Lollipop Consumer Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  },
+  "Lollipop Low-end Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  },
+  "Lollipop Phone Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  },
+  "Lollipop Tablet Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  },
+  "Marshmallow Tablet Tester": {
+    "gtest_tests": [
+      {
+        "test": "android_webview_unittests"
+      },
+      {
+        "test": "cc_unittests"
+      },
+      {
+        "test": "device_unittests"
+      },
+      {
+        "test": "events_unittests"
+      },
+      {
+        "test": "gl_tests"
+      },
+      {
+        "test": "gl_unittests"
+      },
+      {
+        "test": "gpu_unittests"
+      },
+      {
+        "test": "ipc_tests"
+      }
+    ]
+  }
+}

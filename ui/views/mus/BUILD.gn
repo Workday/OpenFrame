@@ -1,0 +1,126 @@
+# Copyright 2014 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("//tools/grit/repack.gni")
+
+component("mus") {
+  output_name = "ui_views_mus_lib"
+
+  sources = [
+    "aura_init.cc",
+    "aura_init.h",
+    "display_converter.cc",
+    "display_converter.h",
+    "input_method_mus.cc",
+    "input_method_mus.h",
+    "mus_export.h",
+    "native_widget_mus.cc",
+    "native_widget_mus.h",
+    "platform_window_mus.cc",
+    "platform_window_mus.h",
+    "surface_binding.cc",
+    "surface_binding.h",
+    "surface_context_factory.cc",
+    "surface_context_factory.h",
+    "window_manager_client_area_insets.h",
+    "window_manager_connection.cc",
+    "window_manager_connection.h",
+    "window_tree_host_mus.cc",
+    "window_tree_host_mus.h",
+  ]
+
+  defines = [ "VIEWS_MUS_IMPLEMENTATION" ]
+
+  public_deps = [
+    ":resources",
+    "//components/mus/public/cpp",
+  ]
+  deps = [
+    "//base",
+    "//base:i18n",
+    "//base/third_party/dynamic_annotations",
+    "//cc",
+    "//cc/surfaces",
+    "//components/bitmap_uploader",
+    "//components/mus/gles2:lib",
+    "//components/mus/public/cpp",
+    "//components/mus/public/interfaces",
+    "//components/resource_provider/public/cpp",
+    "//components/resource_provider/public/interfaces",
+    "//mojo/application/public/cpp",
+    "//mojo/application/public/interfaces",
+    "//mojo/converters/geometry",
+    "//mojo/converters/ime",
+    "//mojo/converters/input_events",
+    "//mojo/converters/network",
+    "//mojo/converters/surfaces",
+    "//mojo/platform_handle:for_component",
+    "//mojo/public/c/system:for_component",
+    "//mojo/public/cpp/bindings",
+    "//skia",
+    "//third_party/icu",
+    "//ui/aura",
+    "//ui/compositor",
+    "//ui/events",
+    "//ui/events:events_base",
+    "//ui/gfx",
+    "//ui/gfx/geometry",
+    "//ui/gl",
+    "//ui/mojo/ime:interfaces_cpp_sources",
+    "//ui/mojo/init",
+    "//ui/native_theme",
+    "//ui/views",
+    "//ui/wm",
+  ]
+
+  data_deps = [
+    "//components/resource_provider",
+  ]
+
+  if (is_linux && !is_android) {
+    deps += [ "//components/font_service/public/cpp" ]
+    data_deps += [ "//components/font_service" ]
+  }
+}
+
+repack("resources") {
+  sources = [
+    "$root_gen_dir/ui/resources/ui_resources_100_percent.pak",
+    "$root_gen_dir/ui/strings/app_locale_settings_en-US.pak",
+    "$root_gen_dir/ui/strings/ui_strings_en-US.pak",
+    "$root_gen_dir/ui/views/resources/views_resources_100_percent.pak",
+  ]
+  output = "$root_out_dir/views_mus_resources.pak"
+  deps = [
+    "//ui/resources",
+    "//ui/strings",
+    "//ui/views/resources",
+  ]
+}
+
+group("for_mojo_application") {
+  public_deps = [
+    ":mus",
+  ]
+}
+
+group("for_shared_library") {
+  public_deps = [
+    ":mus",
+  ]
+  if (!is_component_build) {
+    deps = [
+      "//mojo/gles2",
+    ]
+  }
+}
+
+group("for_component") {
+  public_deps = [
+    ":mus",
+  ]
+  deps = [
+    "//mojo/gles2",
+  ]
+}

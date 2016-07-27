@@ -1,0 +1,18 @@
+include_rules = [
+  "+base",
+  "+cc",
+  "-cc/blink",
+  "-chrome"
+  "-content",
+  "+gpu",
+  "+jni",
+  "+net/base",
+  "+skia",
+  "+third_party/skia",
+  "+ui/gfx",
+  "+ui/gl",
+  "+url",
+
+  # TODO(dtrainor): Remove this once Toast uses are removed from Java.
+  "!ui/android",
+]

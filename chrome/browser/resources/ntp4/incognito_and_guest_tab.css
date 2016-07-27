@@ -1,0 +1,63 @@
+/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ *
+ * Incognito and guest mode NTP shared CSS.
+ */
+
+h1 {
+  font-size: 200%;
+  font-weight: normal;
+  margin-bottom: 1.33em;
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: 2em;
+  text-align: start;
+}
+
+a {
+  font-size: 108.3%;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  box-sizing: border-box;
+  margin: 3.5em auto 0;
+  padding: 30px 35px;
+  text-align: center;
+  width: 420px;
+}
+
+html[hascustombackground='true'] .content {
+  border-radius: 2px;
+  box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.4);
+}
+
+.content > span {
+  display: block;
+}
+
+@media (max-width:700px) {
+  body {
+    margin: 1em 2em 2em;
+  }
+}
+
+@media (max-width:400px) {
+  body {
+    margin: 3em 1.5em 2em;
+  }
+}
+
+@media (max-height:480px) and (max-width:400px) {
+  .content {
+    margin: auto;
+  }
+}

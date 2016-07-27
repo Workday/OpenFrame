@@ -1,0 +1,20 @@
+# This is reserved for people that are comfortably with buildbot recipes
+# and understand the implications of changing these files.
+
+dpranke@chromium.org
+jam@chromium.org
+jochen@chromium.org
+machenbach@chromium.org
+maruel@chromium.org
+phajdan.jr@chromium.org
+sky@chromium.org
+thakis@chromium.org
+
+# For Site Isolation FYI tests:
+per-file chromium.fyi.json=creis@chromium.org
+per-file chromium.fyi.json=nick@chromium.org
+
+per-file chromium.perf.json=eakuefner@chromium.org
+per-file chromium.perf.json=fmeawad@chromium.org
+per-file chromium.perf.json=simonhatch@chromium.org
+per-file chromium.perf.json=sullivan@chromium.org

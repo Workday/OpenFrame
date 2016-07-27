@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<script src="../../../resources/js-test.js"></script>
+<style>
+  body {
+    padding: 0px;
+    margin: 0px;
+    /* Overflow hidden so that the size of the scrollbar is not added to
+    the innerHeight/Width properties. */
+    overflow: hidden;
+  }
+
+  .spacer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 2000px;
+    height: 1500px;
+  }
+</style>
+<script language="JavaScript" type="text/javascript">
+    if (window.testRunner && window.internals) {
+        // Note that the layout viewport is based on the minimum page scale.
+        // Thus, the minimum scale of 0.5 causes the layout viewport to become
+        // twice of what we would normally expect.
+        window.internals.setPageScaleFactorLimits(0.5, 4.0);
+        window.jsTestIsAsync = true;
+        testRunner.dumpAsText();
+        testRunner.waitUntilDone();
+        setPrintTestResultsLazily();
+    }
+
+    description("This test makes sure the window properties related to the\
+        viewport remain correct under pinch-to-zoom.");
+
+
+    function testInitialScale () {
+        debug('===Initial Scale===');
+        debug('');
+        shouldBe('window.innerWidth', '1600');
+        shouldBe('window.innerHeight', '1200');
+        shouldBe('internals.visualViewportWidth()', '1600');
+        shouldBe('internals.visualViewportHeight()', '1200');
+    }
+
+    function jsScrollTo(x, y) {
+        window.scrollTo(x, y);
+    }
+
+    function jsScrollBy(x, y) {
+        window.scrollBy(x, y);
+    }
+
+    function testScrolls(jsScroll) {
+        // Test that the layout and visual viewport viewport scroll.
+        jsScroll(100, 200);
+        shouldBe('window.scrollX', '100');
+        shouldBe('window.scrollY', '200');
+        shouldBe('internals.visualViewportScrollX()', '100');
+        shouldBe('internals.visualViewportScrollY()', '200');
+
+        // Test that the scroll doesn't bubble to the visual viewport.
+        jsScroll(1500, 1100);
+        shouldBe('window.scrollX', '400');
+        shouldBe('window.scrollY', '300');
+        shouldBe('internals.visualViewportScrollX()', '400');
+        shouldBe('internals.visualViewportScrollY()', '300');
+
+        // Reset.
+        window.scrollTo(0, 0);
+        shouldBe('window.scrollX', '0');
+        shouldBe('window.scrollY', '0');
+    }
+
+    function testPinchedIn() {
+        debug('');
+        debug('===Pinch Zoom in to 2X===');
+        debug('');
+        window.internals.setPageScaleFactor(2.0);
+        // Test that the innerWidth, innerHeight, scrollX, scrollY are relative
+        // to the layout viewport after page scale.
+        shouldBe('window.innerWidth', '1600');
+        shouldBe('window.innerHeight', '1200');
+        shouldBe('window.scrollX', '0');
+        shouldBe('window.scrollY', '0');
+
+        // Test that the visual viewport size changes after page scale.
+        shouldBe('internals.visualViewportWidth()', '400');
+        shouldBe('internals.visualViewportHeight()', '300');
+
+        debug('===ScrollBy===');
+        testScrolls(jsScrollBy);
+        debug('===ScrollTo===');
+        testScrolls(jsScrollTo);
+    }
+
+    function testMaximallyPinchedOut() {
+        debug('');
+        debug('===Pinch Out to 0.5X===');
+        debug('');
+        window.internals.setPageScaleFactor(0.5);
+        shouldBe('window.innerWidth', '1600');
+        shouldBe('window.innerHeight', '1200');
+        shouldBe('window.scrollX', '0');
+        shouldBe('window.scrollY', '0');
+        shouldBe('internals.visualViewportWidth()', '1600');
+        shouldBe('internals.visualViewportHeight()', '1200');
+
+        debug('===ScrollBy===');
+        testScrolls(jsScrollBy);
+        debug('===ScrollTo===');
+        testScrolls(jsScrollTo);
+    }
+
+    function forceLayout() {
+        window.scrollX;
+    }
+
+    function runTests() {
+        if (window.testRunner && window.internals) {
+            // TODO(ymalik): The call to setPageScaleFactorLimits should force
+            // layout. Fix that instead of forcing layout here.
+            forceLayout();
+            testInitialScale();
+            testPinchedIn();
+            testMaximallyPinchedOut();
+            finishJSTest();
+        }
+    }
+
+    onload = runTests;
+</script>
+<div class="spacer"></div>

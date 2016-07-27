@@ -1,7 +1,7 @@
 Workday Open Frame
 ===============
 
-Workday Open Frame is an open-source add-on to Microsoft Internet Explorer that enables modern web technologies to work within older versions of IE browsers (IE 6.x, 7.x, and 8.x).
+Workday Open Frame is an open-source add-on to Microsoft Internet Explorer that enables modern web technologies to work within older versions of IE browsers (8.x, 9.x, and 10.x).
 This add-on enables specific websites to be rendered using the open-source Chromium browser (http://www.chromium.org/Home) which supports modern web technologies. 
 
 At Workday, we are committed to building cloud applications that go beyond the limits of traditional enterprise software. To achieve our goal of providing unparalleled
